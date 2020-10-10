@@ -55,6 +55,34 @@
             </div>
           </div>
     </div>
+
+    <div class="container justify-content-center">
+      <a href="/download" target="blank"><button class='btn btn-dark'>Download Pdf of the graphs</button></a>
+      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#emailform">Get a pdf in email</button>
+    </div>
+
+    <div class="modal fade" id="emailform" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Enter Your email</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/mailme" method="POST">
+              <input type="email" class="form-control" placeholder="Email name" name="email" required>
+              <br> 
+              <button type="submit" class="btn btn-dark">Send it!</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

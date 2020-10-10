@@ -1,12 +1,26 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for
+from flask_mail import Mail, Message
 import pandas as pd
 import requests
 import json
 import plotly
 import plotly.graph_objs as go
 
+with open("info.json", "r") as c:
+    parameters = json.load(c)["parameters"]
 
 app = Flask(__name__)
+
+app.config.update(
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_ASCII_ATTACHMENTS = True,
+    MAIL_PORT = '465',
+    MAIL_USE_SSL = True,
+    MAIL_USERNAME = parameters['gmail-user'],
+    MAIL_PASSWORD=  parameters['gmail-password']
+)
+
+mail = Mail(app)
 
 
 @app.route('/')
@@ -30,7 +44,7 @@ def create_plot(x,y):
 
 @app.route('/wow')
 def wow():
-    dataset = pd.read_csv('.\covid19india.csv')
+    dataset = pd.read_csv('covid19india.csv')
     dataset = dataset.drop(['onsetEstimate', 'notes', 'contractedFrom' ], axis = 1)
     dataset = dataset[['patientId', 'reportedOn', 'ageEstimate','gender','state','status']] 
     deceased_df = dataset.loc[dataset['status'] == 'Deceased']
@@ -63,12 +77,27 @@ def wow():
 
 @app.route('/api')
 def api():
-    dataset = pd.read_csv('.\covid19india.csv')
+    dataset = pd.read_csv('covid19india.csv')
     dataset = dataset.drop(['onsetEstimate', 'notes', 'contractedFrom' ], axis = 1)
     dataset = dataset[['patientId', 'reportedOn', 'ageEstimate','gender','state','status']]
     dataset = dataset.to_dict()
     return jsonify(dataset)
 
+
+@app.route('/mailme', methods=['GET', 'POST'])
+def mailme():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        msg = Message(subject = 'Covid graph', body = 'Hey! U will find attached pdf with all the relevent data!', sender = parameters['gmail-user'], recipients = [email]) 
+        with app.open_resource('Doc1.pdf') as fp:
+            msg.attach("Doc1.pdf","attachment/pdf",fp.read())
+        mail.send(msg)
+    return redirect( url_for('wow'))
+
+
+@app.route('/download')
+def download():
+    return send_file('Doc1.pdf', attachment_filename='Doc1.pdf', as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
