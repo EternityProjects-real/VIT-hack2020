@@ -22,9 +22,22 @@ app.config.update(
 
 mail = Mail(app)
 
+def create_plot(x,y):
+    data = [ go.Bar( x=x, y=y)]
+    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
+
 
 @app.route('/')
 def index():
+    info_df = ["Recovered", "Hospitalized", "Deceased"]
+    info_ddf = [182, 27663, 45]
+    plot_index = create_plot(info_df, info_ddf)
+    return render_template('index.html', plot_index = plot_index)
+
+
+@app.route('/tabular')
+def tabular():
     regional_data = requests.get('https://api.rootnet.in/covid19-in/contacts')
     regional_data = regional_data.json()["data"]["contacts"]["regional"]
     notifications = requests.get('https://api.rootnet.in/covid19-in/notifications')
@@ -33,17 +46,11 @@ def index():
     hospital_bed = hospital_bed.json()["data"]["regional"]
     medical_col_bed = requests.get('https://api.rootnet.in/covid19-in/hospitals/medical-colleges')
     medical_col_bed  = medical_col_bed.json()["data"]["medicalColleges"]
-    return render_template('index.html', medical_col_bed = medical_col_bed, regional_data = regional_data, notifications = notifications, hospital_bed = hospital_bed)
-
-
-def create_plot(x,y):
-    data = [ go.Bar( x=x, y=y)]
-    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON
+    return render_template('tabular.html', medical_col_bed = medical_col_bed, regional_data = regional_data, notifications = notifications, hospital_bed = hospital_bed)
         
 
-@app.route('/wow')
-def wow():
+@app.route('/statical')
+def statical():
     dataset = pd.read_csv('covid19india.csv')
     dataset = dataset.drop(['onsetEstimate', 'notes', 'contractedFrom' ], axis = 1)
     dataset = dataset[['patientId', 'reportedOn', 'ageEstimate','gender','state','status']] 
@@ -72,7 +79,7 @@ def wow():
     plot_gender = create_plot(gen_cat, gen)
     plot_age = create_plot(age_group, age_death)
     plot_date = create_plot(date_ddf, date_df_total)
-    return render_template('deceased.html',  plot_state = plot_state, plot_gender = plot_gender, plot_age = plot_age, plot_date = plot_date)
+    return render_template('graphs.html',  plot_state = plot_state, plot_gender = plot_gender, plot_age = plot_age, plot_date = plot_date)
 
 
 @app.route('/api')
@@ -92,7 +99,7 @@ def mailme():
         with app.open_resource('Doc1.pdf') as fp:
             msg.attach("Doc1.pdf","attachment/pdf",fp.read())
         mail.send(msg)
-    return redirect( url_for('wow'))
+    return redirect( url_for('statical'))
 
 
 @app.route('/download')

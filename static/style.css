@@ -1,0 +1,101 @@
+#recovered {
+    background-color: rgb(28, 33, 58);
+    text-align: center;
+}
+
+#recovered:hover {
+    background-color: rgba(40, 166, 69, 0.1);
+    text-align: center;
+}
+
+#Hospitalized {
+    background-color: rgb(28, 33, 58);
+    text-align: center;
+}
+
+#Hospitalized:hover {
+    background-color: rgba(196, 196, 196, 0.1);
+    text-align: center;
+}
+
+#Deceased {
+    background-color: rgb(28, 33, 58);
+    text-align: center;
+}
+
+#Deceased:hover {
+    background-color: rgba(244, 8, 57, 0.1);
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0d1029;
+    color: white;
+    text-align: center;
+}
+
+.data {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    font-size: 150%
+}
+
+.et {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    color: #9B4DFF;
+    font-size: 200%
+}
+
+a:hover {
+    color: rgb(175, 230, 255)
+}
+
+h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    padding-top: 1%;
+    font-size: 300%
+}
+h4,p{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    color: white;
+}
+#tabelhead{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    color: white;
+}
+.table{
+    background-color:rgba(33, 33, 62, 0.4);
+}
+#myBtn {
+    display: none;
+    position: fixed; 
+    bottom: 20px;
+    right: 30px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #1A1A2F; 
+    color: white; 
+    cursor: pointer;
+    padding: 15px; 
+    border-radius: 10px;
+    font-size: 18px;
+}
+#myBtn:hover {
+     background-color: #555; /* Add a dark-grey background on hover */
+}

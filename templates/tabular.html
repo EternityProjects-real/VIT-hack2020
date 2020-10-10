@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        .body{
+            background-color: #0d1027;
+        }
+        .data{
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            color: white;
+            font-size: 150%
+        }
+        .et{
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            color: #9B4DFF;
+            font-size: 200%
+        }
+        a:hover{
+            color:rgb(175, 230, 255)
+        }
+        h4,p{
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            color: white;
+        }
+        #tabelhead{
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            color: white;
+        }
+        .table{
+            background-color:rgba(33, 33, 62, 0.4);
+        }
+        #myBtn {
+            display: none;
+            position: fixed; 
+            bottom: 20px;
+            right: 30px; 
+            z-index: 99; 
+            border: none; 
+            outline: none; 
+            background-color: #1A1A2F; 
+            color: white; 
+            cursor: pointer;
+            padding: 15px; 
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        #myBtn:hover {
+             background-color: #555; /* Add a dark-grey background on hover */
+        }
+    </style> 
+    <title>Tabular Data</title>
+  </head>
+  <body class = "body">
+    <div class="container">
+        <nav class="navbar navbar" style="opacity: 1">
+            <a class="navbar-brand" href="https://flipr.ai/">
+              <img src="/static/Flipr logo.png" width="70" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+            </a>
+            <a href = "/" class = "data">Home</a>
+            <a href = "/statical" class = "data">Statistical Data</a>
+            <a href = "/tabular" class = "data">Tabular Data</a>  
+            <a href = "https://github.com/EternityProjects-real" class = "et">Etern!ty</a>          
+          </nav>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="helpline" data-toggle="pill" href="#helplinedata" role="tab" aria-controls="helplinedata" aria-selected="true" style="color: white; background: #0d1027;"><p>Helpline</p></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="notifications" data-toggle="pill" href="#notificationsdata" role="tab" aria-controls="notificationsdata" aria-selected="false" style="color: white; background-color:#0d1027;"><p>Notifications ans Advisory</p></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="hospitalbed" data-toggle="pill" href="#hospitalbeddata" role="tab" aria-controls="hospitalbeddata" aria-selected="false" style="color: white; background-color: #0d1027;"><p>Hospitals and Beds</p></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="medcol" data-toggle="pill" href="#medcoldata" role="tab" aria-controls="medcoldata" aria-selected="false" style="color: white; background-color: #0d1027;"><p>Medical Colleges and Beds</p></a>
+              </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="helplinedata" role="tabpanel" aria-labelledby="helpline">
+                <h3 id = "tabelhead">Contact and Helpline Info</h3>
+                <br>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"><h4>#</h4></th>
+                        <th scope="col"><h4>Location</h4></th>
+                        <th scope="col"><h4>Number</h4></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in regional_data %}
+                      <tr>
+                        <th><p>{{loop.index}}</p></th>
+                        <td><p>{{ i.loc }}</p></td>
+                        <td><p>{{ i.number }}</p></td>
+                      </tr> 
+                      {% endfor %} 
+                    </tbody>
+                  </table>
+            </div>
+            <div class="tab-pane fade" id="notificationsdata" role="tabpanel" aria-labelledby="notifications">
+                <h3 id = "tabelhead">Notification and Advisory</h3>
+                <br>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"><h4>#</h4></th>
+                        <th scope="col"><h4>Title</h4></th>
+                        <th scope="col"><h4>Link</h4></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in notifications %}
+                      <tr>
+                        <th><p>{{loop.index}}</p></th>
+                        <td><p>{{ i.title }}</p></td>
+                        <td><a href="{{ i.link }}" style="color: white">{{ i.link }}</a></td>
+                      </tr> 
+                      {% endfor %} 
+                    </tbody>
+                  </table>
+            </div>
+            <div class="tab-pane fade" id="hospitalbeddata" role="tabpanel" aria-labelledby="hospitalbed">
+                <h3 id = "tabelhead">Hospital and Beds</h3>
+                <br>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"><h4>#</h4></th>
+                        <th scope="col"><h4>State</h4></th>
+                        <th scope="col"><h4>Rural Hospitals</h4></th>
+                        <th scope="col"><h4>Rural Beds</h4></th>
+                        <th scope="col"><h4>Urban Hospitals</h4></th>
+                        <th scope="col"><h4>Urban Beds</h4></th>
+                        <th scope="col"><h4>Total Hospitals</h4></th>
+                        <th scope="col"><h4>Total Beds</h4></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in hospital_bed %}
+                      <tr>
+                        <th><p>{{loop.index}}</p></th>
+                        <td><p>{{ i.state }}</p></td>
+                        <td><p>{{ i.ruralHospitals }}</p></td>
+                        <td><p>{{ i.ruralBeds }}</p></td>
+                        <td><p>{{ i.urbanHospitals }}</p></td>
+                        <td><p>{{ i.urbanBeds }}</p></td>
+                        <td><p>{{ i.totalHospitals }}</p></td>
+                        <td><p>{{ i.totalBeds }}</p></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+            <div class="tab-pane fade" id="medcoldata" role="tabpanel" aria-labelledby="medcol">
+                <h3 id = "tabelhead">Medical Colleges and Beds</h3>
+                <br>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"><h4>#</h4></th>
+                        <th scope="col"><h4>State</h4></th>
+                        <th scope="col"><h4>Rural Hospitals</h4></th>
+                        <th scope="col"><h4>Rural Beds</h4></th>
+                        <th scope="col"><h4>Urban Hospitals</h4></th>
+                        <th scope="col"><h4>Urban Beds</h4></th>
+                        <th scope="col"><h4>Total Hospitals</h4></th>
+                        <th scope="col"><h4>Total Beds</h4></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in hospital_bed %}
+                      <tr>
+                        <th><p>{{loop.index}}</p></th>
+                        <td><p>{{ i.state }}</p></td>
+                        <td><p>{{ i.ruralHospitals }}</p></td>
+                        <td><p>{{ i.ruralBeds }}</p></td>
+                        <td><p>{{ i.urbanHospitals }}</p></td>
+                        <td><p>{{ i.urbanBeds }}</p></td>
+                        <td><p>{{ i.totalHospitals }}</p></td>
+                        <td><p>{{ i.totalBeds }}</p></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+    </div>
+    <br>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+        mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+    </script>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
