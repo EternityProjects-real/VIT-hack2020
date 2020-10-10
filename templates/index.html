@@ -35,7 +35,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    {% for i in r %}
+                    {% for i in regional_data %}
                   <tr>
                     <th scope="row">{{loop.index}}</th>
                     <td>{{ i.loc }}</td>
@@ -55,11 +55,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                    {% for i in q %}
+                    {% for i in notifications %}
                   <tr>
                     <th scope="row">{{loop.index}}</th>
                     <td>{{ i.title }}</td>
-                    <td>{{ i.link }}</td>
+                    <td><a>{{ i.link }}</a></td>
                   </tr> 
                   {% endfor %} 
                 </tbody>
@@ -91,7 +91,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            {% for i in h %}
+                            {% for i in hospital_bed %}
                           <tr>
                             <th scope="row">{{loop.index}}</th>
                             <td>{{ i.state }}</td>
@@ -121,7 +121,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            {% for i in m %}
+                            {% for i in medical_col_bed %}
                           <tr>
                             <th scope="row">{{loop.index}}</th>
                             <td>{{ i.state }}</td>
