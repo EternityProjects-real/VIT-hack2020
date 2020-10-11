@@ -9,7 +9,7 @@ Welcome to the community, feel free to drop a [mail](mailto:archismanhota@gmail.
 
 Our Website can be found [**here**](http://covid19eternity-env.eba-pqytyppq.us-east-1.elasticbeanstalk.com/) 😎
 
-And the Video link [**here**](https://drive.google.com/drive/folders/1bX76fB8WYaBpio3qv_tl65Ga8AyavwzQ?usp=sharing)
+And the Video link [**here**](https://drive.google.com/drive/folders/1bX76fB8WYaBpio3qv_tl65Ga8AyavwzQ?usp=sharing) 😎
 
 ## VIT-Hack2020
 
