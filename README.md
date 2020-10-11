@@ -50,13 +50,16 @@ Please show data in the table form for all the States and Union Territories avai
 Using the below API fetch the notification and advisories information. API URL: https://api.rootnet.in/covid19-in/notifications 
 Please show data in the table form for all the notification & advisories available in the API. 
 3) Hospitals Dashboards: 
+
 A. Hospitals & beds: 
 Using the below API fetch the rural and urban hospitals & beds information for all the states and Union Territories. 
 API URL: https://api.rootnet.in/covid19-in/hospitals/beds 
 Please show data in the table form for all the States and Union Territories available in the API. 
+
 B. Medical Colleges & beds: 
 Using the below API fetch the rural and urban hospitals & beds information for all the states and Union Territories. 
 API URL: https://api.rootnet.in/covid19-in/hospitals/medical-colleges Please show data in the table form for all the States and Union Territories available in the API. 
+
 4) Plot a graph for the Deceased person
 
     * Upload data given to database 
