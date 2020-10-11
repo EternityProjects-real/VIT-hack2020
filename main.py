@@ -30,10 +30,7 @@ def create_plot(x,y):
 
 @app.route('/')
 def index():
-    info_df = ["Recovered", "Hospitalized", "Deceased"]
-    info_ddf = [182, 27663, 45]
-    plot_index = create_plot(info_df, info_ddf)
-    return render_template('index.html', plot_index = plot_index)
+    return render_template('index.html')
 
 
 @app.route('/tabular')
@@ -105,6 +102,7 @@ def mailme():
 @app.route('/download')
 def download():
     return send_file('Doc1.pdf', attachment_filename='Doc1.pdf', as_attachment=True)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

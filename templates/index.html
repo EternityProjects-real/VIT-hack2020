@@ -6,82 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="/static/Navbar flavicon_Eternity.png"/>
-    <link rel="icon" type="image/png" href="/static/Navbar flavicon_Eternity.png"/>
+    <link rel="icon" type="image/png" href="/static/Navbar flavicon_Eternity.png" />
+    <link rel="icon" type="image/png" href="/static/Navbar flavicon_Eternity.png" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js"></script>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-    <!-- <style>
-        #recovered {
-            background-color: rgb(28, 33, 58);
-            text-align: center;
-        }
-
-        #recovered:hover {
-            background-color: rgba(40, 166, 69, 0.1);
-            text-align: center;
-        }
-
-        #Hospitalized {
-            background-color: rgb(28, 33, 58);
-            text-align: center;
-        }
-
-        #Hospitalized:hover {
-            background-color: rgba(196, 196, 196, 0.1);
-            text-align: center;
-        }
-
-        #Deceased {
-            background-color: rgb(28, 33, 58);
-            text-align: center;
-        }
-
-        #Deceased:hover {
-            background-color: rgba(244, 8, 57, 0.1);
-            text-align: center;
-        }
-
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #0d1029;
-            color: white;
-            text-align: center;
-        }
-
-        .data {
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 500;
-            color: white;
-            font-size: 150%
-        }
-
-        .et {
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: bold;
-            color: #9B4DFF;
-            font-size: 200%
-        }
-
-        a:hover {
-            color: rgb(175, 230, 255)
-        }
-
-        h1 {
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 500;
-            color: white;
-            padding-top: 1%;
-            font-size: 300%
-        }
-    </style> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
     <title>Etern!ty</title>
 </head>
 
@@ -94,8 +24,8 @@
                     loading="lazy">
             </a>
             <a href="/" class="data">Home</a>
-            <a href="/statical" class="data">Statistical Data</a>
-            <a href="/tabular" class="data">Tabular Data</a>
+            <a href="/statical" class="data">Deceased Info</a>
+            <a href="/tabular" class="data">Know More</a>
             <a href="https://github.com/EternityProjects-real" class="et">Etern!ty</a>
         </nav>
     </div>
@@ -123,7 +53,8 @@
             <div class="card md-3" id="Hospitalized">
                 <h3 style=" color:  #727784; font-family: Montserrat;font-style: normal; font-size: 155%; padding: 5%">
                     Hospitalized</h3>
-                <p style=" color: #727784; font-family: Montserrat;font-style: normal; font-size: 300%; padding: 5%">
+                <p class="num"
+                    style=" color: #727784; font-family: Montserrat;font-style: normal; font-size: 300%; padding: 5%">
                     27663</p>
             </div>
             <div class="card md-3" id="Deceased">
@@ -145,10 +76,14 @@
     <script>
         new Typed('#typed', {
             strings: ['India Against COVID 19'],
-            typeSpeed: 500,
+            typeSpeed: 350,
             delaySpeed: 10000,
             loop: false
         });
+    </script>
+
+    <script>
+        $(.num).counterUp({ delay: 10, time: 1000 });
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
