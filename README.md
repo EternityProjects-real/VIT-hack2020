@@ -7,7 +7,7 @@ Welcome to the community, feel free to drop a [mail](mailto:archismanhota@gmail.
 
 ## Contents
 
-Our Website can be found [**here**](https://coviddeploy.herokuapp.com/) 😎
+Our Website can be found [**here**](http://covid19eternity-env.eba-pqytyppq.us-east-1.elasticbeanstalk.com/) 😎
 
 ## VIT-Hack2020
 
