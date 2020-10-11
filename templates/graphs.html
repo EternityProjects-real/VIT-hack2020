@@ -13,7 +13,48 @@
     <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
     <link rel="icon" type="image/png" href="/static/Navbar flavicon_Eternity.png" />
     <link rel="icon" type="image/png" href="/static/Navbar flavicon_Eternity.png" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}"> -->
+    <style>
+        .footer {
+    width: 100%;
+    background-color: #0d1029;
+    color: white;
+    text-align: center;
+}
+.data {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    font-size: 150%
+}
+
+.et {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    color: #9B4DFF;
+    font-size: 200%
+}
+a:hover {
+    color: rgb(175, 230, 255)
+}
+h4,p{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    color: white;
+}
+#tabelhead{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    color: white;
+}
+.table{
+    background-color:rgba(33, 33, 62, 0.4);
+}
+    </style>
     <title>Deceased info</title>
 </head>
 
@@ -83,6 +124,7 @@
             </div>
         </div>
     </div>
+    <br>
 
     <div class="container justify-content-center">
         <a href="/download" target="blank"><button class='btn btn-dark'>Download Pdf of the graphs</button></a>
@@ -116,11 +158,10 @@
 
     <div class="footer">
         <p style="color: rgb(182,182,182)">Made with <i class="fas fa-heart" style=" color: red"></i> by <a
-                href="https://github.com/EternityProjects-real" style=" color: white">Etern!ty</a></p>
+                href="https://github.com/EternityProjects-real" style=" color: rgb(182,182,182)">Etern!ty</a></p>
     </div>
 
 
-    \
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
