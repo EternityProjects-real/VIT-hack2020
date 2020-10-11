@@ -269,27 +269,24 @@
                 <h4>State</h4>
               </th>
               <th scope="col">
-                <h4>Rural Hospitals</h4>
+                <h4>Name</h4>
               </th>
               <th scope="col">
-                <h4>Rural Beds</h4>
+                <h4>City</h4>
               </th>
               <th scope="col">
-                <h4>Urban Hospitals</h4>
+                <h4>Ownership</h4>
               </th>
               <th scope="col">
-                <h4>Urban Beds</h4>
+                <h4>Admission Capacity</h4>
               </th>
               <th scope="col">
-                <h4>Total Hospitals</h4>
-              </th>
-              <th scope="col">
-                <h4>Total Beds</h4>
+                <h4>Hospital Beds</h4>
               </th>
             </tr>
           </thead>
           <tbody>
-            {% for i in hospital_bed %}
+            {% for i in medical_col_bed %}
             <tr>
               <th>
                 <p>{{loop.index}}</p>
@@ -298,22 +295,19 @@
                 <p>{{ i.state }}</p>
               </td>
               <td>
-                <p>{{ i.ruralHospitals }}</p>
+                <p>{{ i.name }}</p>
               </td>
               <td>
-                <p>{{ i.ruralBeds }}</p>
+                <p>{{ i.city }}</p>
               </td>
               <td>
-                <p>{{ i.urbanHospitals }}</p>
+                <p>{{ i.ownership }}</p>
               </td>
               <td>
-                <p>{{ i.urbanBeds }}</p>
+                <p>{{ i.admissionCapacity }}</p>
               </td>
               <td>
-                <p>{{ i.totalHospitals }}</p>
-              </td>
-              <td>
-                <p>{{ i.totalBeds }}</p>
+                <p>{{ i.hospitalBeds }}</p>
               </td>
             </tr>
             {% endfor %}
